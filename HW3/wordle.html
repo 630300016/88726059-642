@@ -5,7 +5,7 @@
 
     span {
         padding-left: 3px;
-        padding-rigth: 3px;
+        padding-right: 3px;
     }
 
     .green{
@@ -37,7 +37,7 @@
         guestWord = elmGuessWord.volue;
         s= "<div>";
         for (i = 0; i < guestWord.legth; i++) {
-            if(rndWord.indexOf(guestWord[i]) <div 0 ) {
+            if(rndWord.indexOf(guestWord[i]) < 0) {
                 s += "<span class='red'>" + guestWord[i] + "</span>";
             } else if (guesttWord[i] == rndWord[i]) {
                 s += "<span class='green'>" + guestWord[i] + "</span>";
