@@ -25,7 +25,7 @@
 </style>
 <script>
     words = ["adult","angle","apple","birth","black","block","beach","candy","clock","chees","color","fairy","force","leave","green","glass","login","light","party","quick","remix","right","sleep","sound","table","times","truck","words","white","water"];
-    rndWord = words[math.floor(math.random()*word.length)];
+    rndWord = words[Math.floor(Math.random()*word.length)];
     document.write(rndWord);
     numGuess = 6;
     num = 1;
@@ -34,26 +34,26 @@
         numCorrect = 0;
         hist = document.getElementById("hist");
         elmGuessWord = document.getElementById("guessWord");
-        guestWord = elmGuessWord.volue;
-        s= "<div>";
-        for (i = 0; i < guestWord.legth; i++) {
-            if(rndWord.indexOf(guestWord[i]) < 0) {
-                s += "<span class='red'>" + guestWord[i] + "</span>";
-            } else if (guesttWord[i] == rndWord[i]) {
-                s += "<span class='green'>" + guestWord[i] + "</span>";
+        guessWord = elmGuessWord.volue;
+        s = "<div>";
+        for (i = 0; i < guessWord.legth; i++) {
+            if(rndWord.indexOf(guessWord[i]) < 0) {
+                s += "<span class='red'>" + guessWord[i] + "</span>";
+            } else if (guessWord[i] == rndWord[i]) {
+                s += "<span class='green'>" + guessWord[i] + "</span>";
                 numCorrect++;
             } else {
-                s += "<span class='yellow'>" + guestWord[i] + "</span>";
+                s += "<span class='yellow'>" + guessWord[i] + "</span>";
             }
         }
         s == "</div>";
         hist.innerHTML += s;
         num++;
-        elmGuessHTML += s;
+        elmGuessHTML.select;
         if(numCorrect == 5) hist.innerHTML += "Win!!!";
         if(num > 6 && numCorrect != 5) hist.innerHTML += "Game Over!!!";
     }
 </script>
 <h4>Wordle</h4>
-<input type="text" id="guestword" maxlength="5"><button onClick="doGuess()">Guess</button>
+<input type="text" id="guessword" maxlength="5"><button onClick="doGuess()">Guess</button>
 <div id="hist"></div>
