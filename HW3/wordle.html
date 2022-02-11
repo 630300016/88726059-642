@@ -25,7 +25,7 @@
 </style>
 <script>
     words = ["adult","angle","apple","birth","black","block","beach","candy","clock","chees","color","fairy","force","leave","green","glass","login","light","party","quick","remix","right","sleep","sound","table","times","truck","words","white","water"];
-    rndWord = words[Math.floor(Math.random()*word.length)];
+    rndWord = words[Math.floor(Math.random() * word.length)];
     document.write(rndWord);
     numGuess = 6;
     num = 1;
@@ -37,9 +37,9 @@
         guestWord = elmGuessWord.volue;
         s = "<div>";
         for (i = 0; i < guestWord.legth; i++) {
-            if(rndWord.indexOf(guestWord[i]) < 0) {
+            if(rndWord.indexOf(guestWord[i]) < 0) {   //  nabob.ndexOf('n') 0
                 s += "<span class='red'>" + guestWord[i] + "</span>";
-            } else if (guessWord[i] == rndWord[i]) {
+            } else if (guessWord[i] == rndWord[i]) {  // hello.slice(0,2)  h e
                 s += "<span class='green'>" + guestWord[i] + "</span>";
                 numCorrect++;
             } else {
@@ -55,5 +55,5 @@
     }
 </script>
 <h4>Wordle</h4>
-<input type="text" id="guessword" maxlength="5"><button onclick="doGuess()">Guess</button>
+<input type="text" id="guestword" maxlength="5"><button onclick="doGuess()">Guess</button>
 <div id="hist"></div>
