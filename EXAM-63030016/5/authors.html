@@ -2,19 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        .item2 {
+            color: blue;
+        }
+    </style>
 </head>
 <body>
-    <p><b>ผู้แต่ง</b></p>
-    <hr width="50%" align="left">
-    <p id="demo"></p>
+    <div class="item2">
+        <p><b>ผู้แต่ง</b></p>
+    </div>
+        <hr width="50%" align="left">
+        <p id="demo"></p>
 </body>
-<script>
-    function show() {
+
+    <script>
+        function show() {
         var authors = [
             { authorID: 1111, author: 'wittaras', penname: 'witty100' },
             { authorID: 1112, author: 'jakkarin', penname: 'พ่อบ้านใจกล้า' },
             { authorID: 1113, author: 'worawit', penname: 'obob' }
         ];
+
         var author = { authorID: 1114, author: 'surachai', penname: 'jummumboy' };
         authors.push(author);
         let text = "";
@@ -27,7 +36,7 @@
             text += "<hr width='50%' align='left'>";
         }
         return text;
-    }
-    document.getElementById("demo").innerHTML = show();
-</script>
+        }
+        document.getElementById("demo").innerHTML = show();
+    </script>
 </html>
