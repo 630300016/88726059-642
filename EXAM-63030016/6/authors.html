@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR...nsitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <p><b>ผู้แต่ง</b></p>
+    <hr width="50%" align="left">
+    <form>
+        รหัสผู้แต่ง<br>
+        <input type="text" id="authorID" /><br>
+        ชื่อผู้แต่ง<br>
+        <input type="text" id="author" /><br>
+        นามปากกา<br>
+        <input type="text" id="penname" /><br>
+        <input type="button" onclick="save()" value="save">
+    </form>
+    <hr width="50%" align="left">
+    <p id="demo"></p>
+</body>
+<script>
+    var authors = [];
+    function save() {
+        let id = document.getElementById("authorID").value;
+        let author = document.getElementById("author").value;
+        let penname = document.getElementById("penname").value;
+        authors.push({authorID: id, author: author, penname: penname});
+        let text = "";
+        for (let i = 0; i < authors.length; i++) {
+            text += "<dl>";
+            text += "<dt>รหัส: "+authors[i].authorID+"</dt>";
+            text += "<dt>ชื่อ: "+authors[i].author+"</dt>";
+            text += "<dt>นามปากกา: "+authors[i].penname+"</dt>";
+            text += "</dl>";
+            text += "<hr width='50%' align='left'>";
+        }
+        document.getElementById("demo").innerHTML = text;
+        document.getElementById("authorID").value = "";
+        document.getElementById("author").value = "";
+        document.getElementById("penname").value = "";
+    }
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR...nsitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <p><b>ผู้แต่ง</b></p>
+    <hr width="50%" align="left">
+    <div id="content"></div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            type: 'POST',
+            url: 'get_authors.php',
+            data: '',
+            success: function(result) {
+                var content = '';
+                var obj = jQuery.parseJSON(result);
+                $.each(obj, function(i, item) {
+                    content += "<dl>";
+                    content += "<dt>รหัส: "+item.authorID+"</dt>";
+                    content += "<dt>ชื่อ: "+item.author+"</dt>";
+                    content += "<dt>นามปากกา: "+item.penname+"</dt>";
+                    content += "<dt><input type='button' onclick='delect("+item.authorID+")' value='ลบ' /></dt>";
+                    content += "</dl>";
+                    content += "<hr width='50%' align='left'>";
+                });
+                $('#content').html(content);
+            }
+        });
+    });
+    function delect(id) {
+        var data = {
+            'author_id': id
+        };
+        $.ajax({
+            url: "del_author.php",
+            type: 'POST',
+            data: data,
+            dataType:'json',
+            success: function(result) {
+                console.log(result);
+            }
+        });
+        $.ajax({
+            type: 'POST',
+            url: 'get_authors.php',
+            data: '',
+            success: function(result) {
+                var content = '';
+                var obj = jQuery.parseJSON(result);
+                $.each(obj, function(i, item) {
+                    content += "<dl>";
+                    content += "<dt>รหัส: "+item.authorID+"</dt>";
+                    content += "<dt>ชื่อ: "+item.author+"</dt>";
+                    content += "<dt>นามปากกา: "+item.penname+"</dt>";
+                    content += "<dt><input type='button' onclick='delect("+item.authorID+")' value='ลบ' /></dt>";
+                    content += "</dl>";
+                    content += "<hr width='50%' align='left'>";
+                });
+                $('#content').html(content);
+            }
+        });
+    }
+</script>
+</html>
