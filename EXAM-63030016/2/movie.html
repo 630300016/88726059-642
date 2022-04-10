@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR...nsitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <p id="demo"></p>
+</body>
+<script>
+    const movies = ["Avengers: Endgame", "The Lion King", "Star Wars: The Rise of Skywalker", "Frozen II", "Toy Story 4"];
+    const prices = [858373000, 543638043, 451582256, 450439533, 434038008];
+
+    let text = "";
+    let sum = 0;
+    text += "<table border='1'>";
+    text += "<tr>";
+    text += "<th>#</th>";
+    text += "<th>ภาพยนต์</th>";
+    text += "<th>รายดได้รวม</th>";
+    text += "</tr>";
+    for (let i = 0; i < movies.length; i++) {
+        text += "<tr>";
+        text += "<td>"+(i+1)+"</td>";
+        text += "<td>"+movies[i]+"</td>";
+        text += "<td style='text-align:right'>"+formatNumber(prices[i])+"</td>";
+        text += "</tr>";
+        sum += prices[i];
+    }
+    text += "<tr>";
+    text += "<td colspan='2' style='text-align:center'>รวม</td>";
+    text += "<td style='text-align:right'>"+formatNumber(sum)+"</td>";
+    text += "</tr>";
+    text += "</table>";
+    document.getElementById("demo").innerHTML = text;
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    }
+</script>
+</html>
