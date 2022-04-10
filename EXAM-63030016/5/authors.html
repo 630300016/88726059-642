@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR...nsitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <p><b>ผู้แต่ง</b></p>
+    <hr width="50%" align="left">
+    <p id="demo"></p>
+</body>
+<script>
+    function show() {
+        var authors = [
+            { authorID: 1111, author: 'wittaras', penname: 'witty100' },
+            { authorID: 1112, author: 'jakkarin', penname: 'พ่อบ้านใจกล้า' },
+            { authorID: 1113, author: 'worawit', penname: 'obob' }
+        ];
+        var author = { authorID: 1114, author: 'surachai', penname: 'jummumboy' };
+        authors.push(author);
+        let text = "";
+        for (let i = 0; i < authors.length; i++) {
+            text += "<dl>";
+            text += "<dt>รหัส: "+authors[i].authorID+"</dt>";
+            text += "<dt>ชื่อ: "+authors[i].author+"</dt>";
+            text += "<dt>นามปากกา: "+authors[i].penname+"</dt>";
+            text += "</dl>";
+            text += "<hr width='50%' align='left'>";
+        }
+        return text;
+    }
+    document.getElementById("demo").innerHTML = show();
+</script>
+</html>
